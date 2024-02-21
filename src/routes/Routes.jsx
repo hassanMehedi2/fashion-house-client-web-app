@@ -6,24 +6,25 @@ import Register from "../pages/Register/Register";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import BrandsProducts from "../pages/BrandsProducts/BrandsProducts";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
+import ProductDetails from "../pages/ProductDetails/ProductDetails";
 
 
 const routes = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
-        children:[
+        children: [
             {
-                path:'/',
+                path: '/',
                 element: <Home></Home>,
-                loader: ()=> fetch('/brands.json')
+                loader: () => fetch('/brands.json')
             },
             {
-                path:'/login',
+                path: '/login',
                 element: <Login></Login>
             },
             {
-                path:'/register',
+                path: '/register',
                 element: <Register></Register>
             },
             {
@@ -31,14 +32,19 @@ const routes = createBrowserRouter([
                 element: <AddProduct></AddProduct>
             },
             {
-                path:'/brandsProducts/:brand',
-                element:<BrandsProducts></BrandsProducts>,
-                loader: ({params}) =>fetch(`https://fashion-house-server-web-app.vercel.app/products/${params.brand}`)
+                path: '/brandsProducts/:brand',
+                element: <BrandsProducts></BrandsProducts>,
+                loader: ({ params }) => fetch(`https://fashion-house-server-web-app.vercel.app/products/brand/${params.brand}`)
             },
             {
                 path: '/updateProduct/:id',
                 element: <UpdateProduct></UpdateProduct>,
-                loader: ({params})=> fetch(`https://fashion-house-server-web-app.vercel.app/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://fashion-house-server-web-app.vercel.app/products/${params.id}`)
+            },
+            {
+                path: '/product/:id',
+                element: <ProductDetails></ProductDetails>,
+                loader: ({ params }) => fetch(`https://fashion-house-server-web-app.vercel.app/products/${params.id}`)
             }
         ]
     }

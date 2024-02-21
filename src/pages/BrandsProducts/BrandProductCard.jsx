@@ -45,10 +45,11 @@ const BrandProductCard = ({ product }) => {
                         <>
                             <div     data-aos="fade-up"  className="hero-overlay bg-black  bg-opacity-50 absolute inset-0"></div>
                             <div     data-aos="fade-up"  className="hero-content absolute inset-0 flex justify-center items-center">
-                                <div className="space-y-2">
-                                    <button className="w-full h-9 rounded-lg font-bold bg-white">Add To Cart</button>
-                                   <Link to={'/updateProduct'}><button className="w-full h-9 rounded-lg font-bold bg-white">Update Product </button></Link> 
-                                    <button className="w-full h-9 rounded-lg font-bold bg-white">View Details</button>
+                                <div className="flex flex-col w-full gap-2">
+                                   <div className="w-full"> <button className="w-full h-9 rounded-lg font-bold bg-white">Add To Cart</button></div>
+                                   <Link to={`/updateProduct/${product._id}`} className=""><button className="w-full h-9 rounded-lg font-bold bg-white">Update Product </button></Link> 
+                                   <Link to={`/product/${product._id}`} className="">  <button className="w-full h-9 rounded-lg font-bold bg-white">View Details</button></Link> 
+                                  
                                 </div>
                             </div>
                         </>
