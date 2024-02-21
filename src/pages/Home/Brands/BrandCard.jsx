@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const BrandCard = ({ brand }) => {
     return (
         <div className=" mx-auto lg:w-52 rounded-lg flex items-center justify-center ">
-            <Link>
+            <Link to={`/brandsProducts/${brand.brand_name}`}>
                 <div className="rounded-lg p-2 w-[160px] h-[190px] flex items-center">
                     <img className="object-cover " src={brand.brand_image} alt="" />
                 </div>

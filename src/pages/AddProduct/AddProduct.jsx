@@ -1,22 +1,23 @@
 import { useState } from "react";
+import Swal from 'sweetalert2'
 import Navbar from "../Shared/Nav/Navbar";
 
 
 const AddProduct = () => {
 
-const [brand ,setBrand]= useState('');
-const [type ,setType]= useState('');
-const [rating ,setRating]= useState('');
+    const [brand, setBrand] = useState('');
+    const [type, setType] = useState('');
+    const [rating, setRating] = useState('');
 
-const handleBrandChange = e=>{
-    setBrand(e.target.value);
-}
-const handleTypeChange = e=>{
-    setType(e.target.value);
-}
-const handleRatingChange = e=>{
-    setRating(e.target.value);
-}
+    const handleBrandChange = e => {
+        setBrand(e.target.value);
+    }
+    const handleTypeChange = e => {
+        setType(e.target.value);
+    }
+    const handleRatingChange = e => {
+        setRating(e.target.value);
+    }
 
 
     const handleAdd = e => {
@@ -32,8 +33,31 @@ const handleRatingChange = e=>{
         const image2 = form.image2.value;
         const image3 = form.image3.value;
 
-        const product = {name,brandName,price,productType,description,productRating,image1,image2,image3};
+        const product = { name, brandName, price, productType, description, productRating, image1, image2, image3 };
         console.log(product);
+
+        // send data to server to save into database 
+        fetch(`https://fashion-house-server-web-app.vercel.app/addProduct`, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: "Product Added Successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
 
     }
 
@@ -58,12 +82,12 @@ const handleRatingChange = e=>{
                             </label>
                             <select className="h-12 rounded-lg p-3" id="dropdown" value={brand} onChange={handleBrandChange}>
                                 <option value="">Select...</option>
-                                <option value="chanel">Chanel</option>
-                                <option value="dior">Dior</option>
-                                <option value="emporio_armani">Emporio Armani</option>
-                                <option value="louis_vuitton">Louis Vuitton</option>
-                                <option value="versace">Versace</option>
-                                <option value="ck">Calvin Klein</option>
+                                <option value="Chanel">Chanel</option>
+                                <option value="Dior">Dior</option>
+                                <option value="Gucci">Gucci</option>
+                                <option value="Givenchy">Givenchy</option>
+                                <option value="Versace">Versace</option>
+                                <option value="Ck">Ck</option>
                             </select>
                         </div>
                     </div>

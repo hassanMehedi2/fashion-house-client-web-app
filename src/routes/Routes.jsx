@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AddProduct from "../pages/AddProduct/AddProduct";
+import BrandsProducts from "../pages/BrandsProducts/BrandsProducts";
+import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 
 
 const routes = createBrowserRouter([
@@ -27,6 +29,16 @@ const routes = createBrowserRouter([
             {
                 path: '/addProduct',
                 element: <AddProduct></AddProduct>
+            },
+            {
+                path:'/brandsProducts/:brand',
+                element:<BrandsProducts></BrandsProducts>,
+                loader: ({params}) =>fetch(`https://fashion-house-server-web-app.vercel.app/products/${params.brand}`)
+            },
+            {
+                path: '/updateProduct/:id',
+                element: <UpdateProduct></UpdateProduct>,
+                loader: ({params})=> fetch(`https://fashion-house-server-web-app.vercel.app/products/${params.id}`)
             }
         ]
     }
