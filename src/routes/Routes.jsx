@@ -7,6 +7,7 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import BrandsProducts from "../pages/BrandsProducts/BrandsProducts";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
+import Cart from "../pages/Cart/Cart";
 
 
 const routes = createBrowserRouter([
@@ -45,6 +46,12 @@ const routes = createBrowserRouter([
                 path: '/product/:id',
                 element: <ProductDetails></ProductDetails>,
                 loader: ({ params }) => fetch(`https://fashion-house-server-web-app.vercel.app/products/${params.id}`)
+            },
+            {
+                path:'/cart',
+                element: <Cart></Cart>,
+                loader: ()=> fetch('https://fashion-house-server-web-app.vercel.app/cart')
+                
             }
         ]
     }
