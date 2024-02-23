@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 import { useState } from "react";
 import Swal from 'sweetalert2'
@@ -68,14 +68,14 @@ const UpdateProduct = () => {
 
 
     return (
-        <div className="mx-10 ">
+        <div className=" ">
             <Navbar></Navbar>
 
             <div className="card shrink-0 w-full   bg-base-200  " >
                 <form onSubmit={handleUpdate} className="card-body">
 
-                    <h2 className="text-center text-3xl font-semibold mt-5 mb-5">Update Product <span className="text-lg font-medium">id:{product._id}</span> </h2>
-                    <div className="md:flex gap-10">
+                    <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold mt-5 mb-5">Update Product <span className="text-lg font-medium">id:{product._id}</span> </h2>
+                    <div className="flex gap-10">
                         <div className="form-control w-1/2 ">
                             <label className="label">
                                 <span className="label-text">Product Name</span>
@@ -84,7 +84,7 @@ const UpdateProduct = () => {
                         </div>
                         <div className="form-control w-1/3">
                             <label className="label">
-                                <span className="label-text">Select Brand Name</span>
+                                <span className="label-text">Select Brand </span>
                             </label>
                             <select className="h-12 rounded-lg p-3" id="dropdown" value={brand} onChange={handleBrandChange}>
                                 <option value="">Select...</option>
@@ -98,7 +98,7 @@ const UpdateProduct = () => {
                         </div>
                     </div>
 
-                    <div className="md:flex gap-10">
+                    <div className="flex gap-10">
                         <div className="form-control w-1/2 ">
                             <label className="label">
                                 <span className="label-text">Price</span>
@@ -120,7 +120,7 @@ const UpdateProduct = () => {
                         </div>
                     </div>
 
-                    <div className="md:flex gap-10">
+                    <div className="flex gap-10">
                         <div className="form-control w-1/2 ">
                             <label className="label">
                                 <span className="label-text">Description</span>
@@ -142,20 +142,20 @@ const UpdateProduct = () => {
                         </div>
                     </div>
 
-                    <div className="md:flex gap-10">
-                        <div className="form-control w-1/3 ">
+                    <div className="md:grid grid-cols-2 lg:flex  gap-10">
+                        <div className="form-control lg:w-1/3 ">
                             <label className="label">
                                 <span className="label-text">Image 1</span>
                             </label>
                             <input type="text" name="image1" placeholder="image-1 " defaultValue={image1} className="input input-bordered" required />
                         </div>
-                        <div className="form-control w-1/3 ">
+                        <div className="form-control lg:w-1/3 ">
                             <label className="label">
                                 <span className="label-text">Image 2</span>
                             </label>
                             <input type="text" name="image2" placeholder="image-2 " defaultValue={image2} className="input input-bordered" required />
                         </div>
-                        <div className="form-control w-1/3 ">
+                        <div className="form-control lg:w-1/3 ">
                             <label className="label">
                                 <span className="label-text">Image 3</span>
                             </label>

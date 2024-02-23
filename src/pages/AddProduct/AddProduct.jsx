@@ -62,14 +62,14 @@ const AddProduct = () => {
     }
 
     return (
-        <div className="mx-10 ">
+        <div className="md:mx-10 ">
             <Navbar></Navbar>
 
             <div className="card shrink-0 w-full   bg-base-200  " >
                 <form onSubmit={handleAdd} className="card-body">
 
-                    <h2 className="text-center text-3xl font-semibold mt-5 mb-5">Add Product</h2>
-                    <div className="md:flex gap-10">
+                    <h2 className="text-center text-xl md:text-3xl font-semibold mt-5 mb-5">Add Product</h2>
+                    <div className="flex gap-10">
                         <div className="form-control w-1/2 ">
                             <label className="label">
                                 <span className="label-text">Product Name</span>
@@ -78,7 +78,7 @@ const AddProduct = () => {
                         </div>
                         <div className="form-control w-1/3">
                             <label className="label">
-                                <span className="label-text">Select Brand Name</span>
+                                <span className="label-text">Select Brand </span>
                             </label>
                             <select className="h-12 rounded-lg p-3" id="dropdown" value={brand} onChange={handleBrandChange}>
                                 <option value="">Select...</option>
@@ -92,7 +92,7 @@ const AddProduct = () => {
                         </div>
                     </div>
 
-                    <div className="md:flex gap-10">
+                    <div className="flex gap-10">
                         <div className="form-control w-1/2 ">
                             <label className="label">
                                 <span className="label-text">Price</span>
@@ -114,7 +114,7 @@ const AddProduct = () => {
                         </div>
                     </div>
 
-                    <div className="md:flex gap-10">
+                    <div className="flex gap-10">
                         <div className="form-control w-1/2 ">
                             <label className="label">
                                 <span className="label-text">Description</span>
@@ -136,29 +136,31 @@ const AddProduct = () => {
                         </div>
                     </div>
 
-                    <div className="md:flex gap-10">
-                        <div className="form-control w-1/3 ">
+                    <div className="md:grid grid-cols-2 lg:grid-cols-3 gap-10">
+                        <div className="form-control lg:w-1/3 ">
                             <label className="label">
                                 <span className="label-text">Image 1</span>
                             </label>
                             <input type="text" name="image1" placeholder="image-1 " className="input input-bordered" required />
                         </div>
-                        <div className="form-control w-1/3 ">
+                        <div className="form-control lg:w-1/3 ">
                             <label className="label">
                                 <span className="label-text">Image 2</span>
                             </label>
                             <input type="text" name="image2" placeholder="image-2 " className="input input-bordered" required />
                         </div>
-                        <div className="form-control w-1/3 ">
+                        <div className="form-control lg:w-1/3 ">
                             <label className="label">
                                 <span className="label-text">Image 3</span>
                             </label>
                             <input type="text" name="image3" placeholder="image-3 " className="input input-bordered" required />
                         </div>
                     </div>
-                    <input type="submit" value={'submit'} className="btn w-ful font-medium text-xl text-white bg-slate-500 mt-10 mb-14" />
+                    <input type="submit" value={'Add product'} className="btn w-ful font-medium text-base md:text-xl text-white bg-slate-500 mt-10 mb-14" />
                 </form>
             </div>
+
+            
 
         </div>
     );

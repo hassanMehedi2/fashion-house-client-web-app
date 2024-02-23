@@ -38,26 +38,26 @@ const ProductDetails = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="mx-28 grid grid-cols-2 gap-5 mt-10" >
+            <div className="mx-10 lg:mx-28  md:grid grid-cols-2 gap-5 mt-10" >
                 <div className=" ">
-                    <div className="h-[440px] w-[80%]  mx-auto p-5">
+                    <div className="h-[250px] w-[80%] md:h-[250px] md:w-[80%] lg:h-[440px] lg:w-[80%] mx-auto p-5">
                         <img className="object-cover h-full w-full" src={image1} alt="" />
                     </div>
                     <div className="flex gap-5 justify-center">
-                        <div className="h-40 w-36">    <img className="h-full object-cover" src={image2} alt="" /></div>
-                        <div className="h-40 w-36">    <img className="h-full object-cover" src={image3} alt="" /></div>
+                        <div className="h-30 w-26 md:h-40 md:w-36">    <img className="h-full object-cover" src={image2} alt="" /></div>
+                        <div className="h-30 w-26 md:h-40 md:w-36">    <img className="h-full object-cover" src={image3} alt="" /></div>
 
                     </div>
                 </div>
                 <div className="mt-10">
-                    <h2 className="text-3xl font-bold">{name}</h2>
+                    <h2 className="text-xl md:text-3xl font-bold">{name}</h2>
                     <div className="flex gap-5  items-center mt-3">
-                        <h2 className="text-2xl font-bold  text-red-600"> ৳ {price} </h2>
+                        <h2 className="text-lg md:text-2xl font-bold  text-red-600"> ৳ {price} </h2>
                         <StarRating stars={productRating}></StarRating>
                     </div>
 
-                    <p className="text-lg font-medium text-orange-600  mt-6 text-justify">DESCRIPTION</p>
-                    <p className="text-lg text-gray-600  text-justify">{description}</p>
+                    <p className="text-base md:text-lg font-medium text-orange-600  mt-6 text-justify">DESCRIPTION</p>
+                    <p className="text-base md:text-lg  text-gray-600  text-justify">{description}</p>
 
 
                     <p className="mt-5 text-gray-700"><span className="font-medium">Brand :</span> {brandName}</p>

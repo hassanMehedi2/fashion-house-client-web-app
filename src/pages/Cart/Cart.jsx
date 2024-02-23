@@ -22,8 +22,8 @@ const Cart = () => {
     return (
         <div className="bg-slate-100">
             <Navbar ></Navbar>
-            <h2 className="my-10 text-center text-3xl font-bold">Cart List</h2>
-            <div className="mx-40 flex md:grid md:grid-cols-5 gap-16">
+            <h2 className="my-10 text-center text-xl md:text-2xl lg:text-3xl font-bold">Cart List</h2>
+            <div className="mx-5 lg:mx-40 flex flex-col md:grid md:grid-cols-5 gap-5 lg:gap-16">
 
                 <div className="col-span-3 ">
                     {
@@ -59,7 +59,7 @@ const Cart = () => {
                     </div>
 
                     <button className="btn mt-5 bg-green-400 text-white w-full">Checkout</button>
-                    <p className="mt-3 text-sm" >This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+                    <p className="md:hidden lg:flex mt-3 text-sm" >This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
                 </div>
             </div>
         </div>

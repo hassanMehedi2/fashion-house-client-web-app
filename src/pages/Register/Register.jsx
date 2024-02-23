@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import Navbar from "../Shared/Nav/Navbar";
 import { FcGoogle } from "react-icons/fc";
@@ -10,11 +10,14 @@ import { FcGoogle } from "react-icons/fc";
 const Register = () => {
     const [visible, setVisible] = useState(false);
     const { createUser,updateUserData, googleLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleGoogleLogin = () => {
         googleLogin()
             .then(res => {
                 console.log(res.user);
+                toast.success("Login successfully")
+                navigate('/')
             })
             .catch(error => {
                 toast.error(error.message)
@@ -50,11 +53,32 @@ const Register = () => {
         createUser(email, password)
             .then(res => {
                 console.log(res.user);
+                navigate('/')
+                toast.success("registered successfully")
+                
+            
+                // adding user data to database 
+
+                // const createdAt = res.user.metadata.creationTime;
+                // const userData ={name,email,createdAt};
+                // fetch('https://fashion-house-server-web-app.vercel.app/user',{
+                //     method: "POST",
+                //     headers: {
+                //         'content-type' : 'application/json'
+                //     },
+                //     body: JSON.stringify(userData)
+                // })
+                // .then(res=>res.json())
+                // .then(data => {
+                //     console.log(data);
+                //     console.log('user saved to database');
+                // })
 
                 // updating the name and photo
                 updateUserData(name,photo)
                 .then(res=>{
                     console.log(res);
+                    
                 })
                 .catch(error=>{
                     console.log(error);
@@ -70,7 +94,7 @@ const Register = () => {
             <div className="flex mt-0 md:mt-5 mx-auto card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <form onSubmit={handleCreateUser} className="card-body">
                     <div>
-                        <h2 className="text-3xl font-semibold mt-5 mb-3 text-center">Please Register</h2>
+                        <h2 className="text-xl md:text-3xl font-semibold mt-5 mb-3 text-center">Please Register</h2>
                     </div>
 
                     <div className="form-control">

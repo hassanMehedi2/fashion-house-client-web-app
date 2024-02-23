@@ -53,12 +53,12 @@ const SingleCart = ({ item, currentItems, setCurrentItems }) => {
                 </div>
                 <div className="col-span-3 mx-10  flex items-center justify-between ">
                     <div >
-                        <p className="text-xl font-semibold " >{name}</p>
+                        <p className="text-lg lg:text-xl font-semibold " >{name}</p>
                         <p className="" >{brandName}</p>
                         <p className="" >{productType}</p>
                         <div className="flex gap-10 mt-2">
                             <p>quantity : 1</p>
-                            <p className="text-xl font-semibold  text-gray-700 ">৳ {price}</p>
+                            <p className="text-base lg:text-xl font-semibold  text-gray-700 ">৳ {price}</p>
                         </div>
                     </div>
                     <div>

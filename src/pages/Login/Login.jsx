@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 
@@ -10,11 +10,16 @@ import toast from "react-hot-toast";
 const Login = () => {
     const [visible, setVisible] = useState(false);
     const {loginUser,googleLogin} = useContext(AuthContext);
+    const navigate = useNavigate(null);
+    const location = useLocation();
+
 
     const handleGoogleLogin = ()=>{
         googleLogin()
         .then(res =>{
             console.log(res.user);
+            navigate(location?.state ? location.state : '/');
+            toast.success("login Successful")
         })
         .catch(error => {
             toast.error(error.message)
@@ -48,9 +53,12 @@ console.log(user);
          loginUser(email,password)
         .then(res=>{
             console.log(res.user);
+            toast.success("login Successful")
+            navigate(location?.state ? location.state : '/')
         })
         .catch(error=>{
             console.log(error);
+            toast.error(error.message);
         })
     }
     return (
@@ -59,7 +67,7 @@ console.log(user);
             <div className="flex mt-0 md:mt-5 mx-auto card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <form onSubmit={handleLogin} className="card-body">
                     <div>
-                        <h2 className="text-3xl font-semibold mt-5 mb-3 text-center">Please Login</h2>
+                        <h2 className="text-xl md:text-3xl font-semibold mt-5 mb-3 text-center">Please Login</h2>
                     </div>
                     <div>
                         <div className="flex outlined outline-double rounded-2xl p-2 justify-center items-center">
